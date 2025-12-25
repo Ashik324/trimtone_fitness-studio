@@ -1,69 +1,89 @@
-import { Dumbbell, Heart, Trophy, Users } from "lucide-react";
+import { Award, Clock, Heart, Users } from "lucide-react";
 
 const features = [
   {
-    icon: Dumbbell,
-    title: "Premium Equipment",
+    icon: Award,
+    title: "Expert Trainers",
     description:
-      "Top-tier machines and free weights from leading brands, maintained daily for your safety.",
+      "Certified fitness professionals dedicated to helping you achieve your goals with personalized attention.",
+  },
+  {
+    icon: Clock,
+    title: "Flexible Hours",
+    description:
+      "Open from 5 AM to 10 PM, Monday through Saturday, fitting your busy schedule perfectly.",
   },
   {
     icon: Users,
-    title: "Expert Trainers",
+    title: "Supportive Community",
     description:
-      "Certified professionals dedicated to helping you achieve your fitness goals.",
+      "Join a family of fitness enthusiasts who motivate and support each other every day.",
   },
   {
     icon: Heart,
-    title: "Personalized Plans",
+    title: "Personalized Programs",
     description:
-      "Custom workout and nutrition plans tailored to your body and objectives.",
-  },
-  {
-    icon: Trophy,
-    title: "Proven Results",
-    description:
-      "Join thousands who have transformed their bodies and lives with us.",
+      "Custom workout and nutrition plans designed specifically for your body type and goals.",
   },
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-gradient-dark">
+    <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">
-            Why Choose Us
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            MORE THAN JUST A{" "}
-            <span className="text-gradient">GYM</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            At IRONFORGE, we believe fitness is a lifestyle. Our state-of-the-art
-            facility combined with our passionate team creates an environment
-            where champions are made.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <div>
+            <span className="text-primary text-sm font-semibold uppercase tracking-widest">
+              About Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+              WHY CHOOSE <span className="text-gradient">TRIM & TONE?</span>
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              At Trim & Tone Fitness Studio, we believe fitness is not just about looking good – 
+              it's about feeling strong, confident, and healthy. Located in the heart of Tiruchirappalli, 
+              we've been transforming lives through dedicated fitness coaching and personalized programs.
+            </p>
+            <p className="text-muted-foreground mb-8">
+              Our state-of-the-art facility combined with our team of certified trainers ensures 
+              you get the best fitness experience possible. Whether you're looking to lose weight, 
+              build muscle, or improve overall health, we have the expertise and equipment to help 
+              you succeed.
+            </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="group p-8 bg-gradient-card rounded-xl border border-border hover:border-primary/50 transition-all duration-500 hover:-translate-y-2"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-14 h-14 rounded-lg bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:shadow-glow transition-all duration-500">
-                <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center p-4 bg-secondary/50 rounded-xl">
+                <div className="text-3xl font-display font-bold text-gradient">500+</div>
+                <div className="text-sm text-muted-foreground">Happy Members</div>
               </div>
-              <h3 className="text-xl font-display font-bold mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
+              <div className="text-center p-4 bg-secondary/50 rounded-xl">
+                <div className="text-3xl font-display font-bold text-gradient">5+</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="group p-6 bg-card rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg animate-fade-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <feature.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-display font-bold mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

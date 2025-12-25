@@ -1,11 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Classes from "@/components/Classes";
-import Pricing from "@/components/Pricing";
-import Trainers from "@/components/Trainers";
+import Services from "@/components/Services";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -13,11 +12,10 @@ const Index = () => {
       <Navbar />
       <Hero />
       <About />
-      <Classes />
-      <Pricing />
-      <Trainers />
+      <Services />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </main>
   );
 };
