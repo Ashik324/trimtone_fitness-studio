@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Phone, MapPin, Clock } from "lucide-react";
+import { Facebook, Instagram, Phone, MapPin, Clock, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 
@@ -20,15 +20,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/trim_tone_fitness_studio?igsh=c2g4Nm5sb2Fpcnhj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -36,12 +28,16 @@ const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://wa.me/919790266868"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:9790266868"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Phone className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:karafath92@gmail.com"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+              >
+                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -100,7 +96,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:08610037810" className="hover:text-primary transition-colors">086100 37810</a>
+                <a href="tel:9790266868" className="hover:text-primary transition-colors">97902 66868</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary shrink-0" />
+                <a href="mailto:karafath92@gmail.com" className="hover:text-primary transition-colors">karafath92@gmail.com</a>
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
