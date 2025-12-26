@@ -14,13 +14,14 @@ const ServicesPage = () => {
       <section className="pt-32 pb-16 bg-secondary/30">
         <div className="container mx-auto px-4 text-center">
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">
-            What We Offer
+            Transform Your Body
           </span>
           <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">
-            OUR <span className="text-gradient">SERVICES</span>
+            ACHIEVE YOUR <span className="text-gradient">FITNESS GOALS</span>
           </h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Specialized fitness programs designed to help you achieve your unique goals.
+            At Trim & Tone Fitness Studio, we offer expert-guided programs tailored to your body type, 
+            fitness level, and personal goals. Start your transformation journey with us today.
           </p>
         </div>
       </section>
