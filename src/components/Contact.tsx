@@ -106,7 +106,7 @@ const Contact = () => {
           {/* Map */}
           <div className="bg-card rounded-2xl border border-border overflow-hidden h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.9927!2d78.6883!3d10.7908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRajaram%20Rd%2C%20Tiruchirappalli%2C%20Tamil%20Nadu%20620021!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5!2d78.68!3d10.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8b49db3f3aa1%3A0xac7f9f8e34a02407!2sTrim%20and%20Tone%20Gym!5e0!3m2!1sen!2sin!4v1703500000000"
               width="100%"
               height="100%"
               style={{ border: 0 }}
