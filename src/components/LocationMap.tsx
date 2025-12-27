@@ -1,70 +1,101 @@
-import { MapPin } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const LocationMap = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate form
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    // Create WhatsApp message
+    const whatsappMessage = `Hi! I'm interested in membership.
+
+Name: ${formData.name.trim()}
+Email: ${formData.email.trim()}
+Phone: ${formData.phone.trim()}
+Message: ${formData.message.trim() || "N/A"}`;
+
+    // Open WhatsApp with the message
+    const whatsappUrl = `https://wa.me/919790266868?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappUrl, "_blank");
+
+    toast.success("Redirecting to WhatsApp...");
+    
+    // Reset form
+    setFormData({ name: "", email: "", phone: "", message: "" });
+  };
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">
-            Find Us
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            OUR <span className="text-gradient">LOCATION</span>
-          </h2>
-          <p className="text-muted-foreground">
-            Visit us at our convenient location in the heart of Tiruchirappalli.
-          </p>
-        </div>
+        <div className="max-w-lg mx-auto">
+          <div className="bg-card rounded-2xl border-t-4 border-t-primary border border-border p-8 shadow-card">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-center mb-8">
+              Get your Membership Now!
+            </h2>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-2 bg-card rounded-2xl border border-border overflow-hidden h-[400px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.5!2d78.68!3d10.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8b49db3f3aa1%3A0xac7f9f8e34a02407!2sTrim%20and%20Tone%20Gym!5e0!3m2!1sen!2sin!4v1703500000000"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Trim & Tone Fitness Studio Location"
-            />
-          </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                placeholder="Name*"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="h-12 border-border"
+                required
+              />
 
-          <div className="bg-card rounded-2xl p-8 border border-border h-fit">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <MapPin className="w-6 h-6 text-primary" />
+              <Input
+                type="email"
+                placeholder="Email*"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="h-12 border-border"
+                required
+              />
+
+              <div className="flex gap-2">
+                <div className="flex items-center gap-2 px-3 border border-border rounded-md bg-background shrink-0">
+                  <span className="text-lg">🇮🇳</span>
+                  <span className="text-sm text-muted-foreground">+91</span>
+                </div>
+                <Input
+                  type="tel"
+                  placeholder="Phone Number*"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="h-12 border-border flex-1"
+                  required
+                />
               </div>
-              <div>
-                <h4 className="font-display font-bold text-xl mb-2">Trim & Tone Fitness Studio</h4>
-                <p className="text-muted-foreground">
-                  Rajaram Rd, Tiruchirappalli,
-                  <br />
-                  Tamil Nadu 620021
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-3 text-sm text-muted-foreground border-t border-border pt-6">
-              <p className="flex justify-between">
-                <span>Monday - Saturday</span>
-                <span className="font-medium text-foreground">5 AM - 10 PM</span>
-              </p>
-              <p className="flex justify-between">
-                <span>Sunday</span>
-                <span className="font-medium text-primary">Closed</span>
-              </p>
-            </div>
 
-            <a
-              href="https://maps.google.com/?q=Rajaram+Rd,+Tiruchirappalli,+Tamil+Nadu+620021"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-primary hover:underline font-medium"
-            >
-              Get Directions
-              <MapPin className="w-4 h-4" />
-            </a>
+              <Textarea
+                placeholder="Detail Message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="min-h-[120px] border-border resize-none"
+              />
+
+              <Button 
+                type="submit" 
+                className="w-full h-12 text-lg font-semibold"
+              >
+                Enquire
+              </Button>
+            </form>
           </div>
         </div>
       </div>
