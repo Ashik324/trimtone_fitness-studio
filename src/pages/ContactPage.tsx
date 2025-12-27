@@ -7,6 +7,36 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import SEO from "@/components/SEO";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Trim & Tone Fitness Studio",
+  "description": "Get in touch with Trim & Tone Fitness Studio. Visit us or enquire about membership.",
+  "mainEntity": {
+    "@type": "HealthClub",
+    "name": "Trim & Tone Fitness Studio",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rajaram Rd",
+      "addressLocality": "Tiruchirappalli",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "620021",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-86100-37810",
+    "email": "karafath92@gmail.com",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "05:00",
+        "closes": "22:00"
+      }
+    ]
+  }
+};
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -39,7 +69,15 @@ Message: ${formData.message.trim() || "N/A"}`;
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Contact Us"
+        description="Contact Trim & Tone Fitness Studio in Tiruchirappalli. Visit us at Rajaram Rd or call +91 86100 37810. Open Mon-Sat 5AM-10PM."
+        keywords="contact gym Trichy, gym phone number, fitness studio address, gym location Tiruchirappalli, gym enquiry"
+        canonical="/contact"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero Section with Background */}
@@ -206,6 +244,7 @@ Message: ${formData.message.trim() || "N/A"}`;
       <Footer />
       <WhatsAppButton />
     </main>
+    </>
   );
 };
 
