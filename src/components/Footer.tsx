@@ -4,13 +4,13 @@ import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-card border-t border-border">
+    <footer className="py-12 bg-card border-t border-border" itemScope itemType="https://schema.org/WPFooter">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Trim & Tone Fitness Studio" className="h-12 w-12 rounded-full object-cover" />
+            <Link to="/" className="flex items-center gap-3 mb-4" aria-label="Trim & Tone Fitness Studio Home">
+              <img src={logo} alt="Trim & Tone Fitness Studio Logo" className="h-12 w-12 rounded-full object-cover" loading="lazy" />
               <span className="text-xl font-display font-bold">
                 TRIM & TONE
               </span>
@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav aria-label="Quick Links">
             <h4 className="font-display font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {[
@@ -62,10 +62,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Our Services">
             <h4 className="font-display font-bold mb-4">Our Services</h4>
             <ul className="space-y-2">
               {[
@@ -84,33 +84,33 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Contact Info */}
-          <div>
+          <address className="not-italic" itemScope itemType="https://schema.org/LocalBusiness">
             <h4 className="font-display font-bold mb-4">Contact Info</h4>
             <ul className="space-y-3 text-muted-foreground text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                <span>Rajaram Rd, Tiruchirappalli, Tamil Nadu 620021</span>
+              <li className="flex items-start gap-2" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <MapPin className="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true" />
+                <span itemProp="streetAddress">Rajaram Rd, Tiruchirappalli, Tamil Nadu 620021</span>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <a href="tel:9790266868" className="hover:text-primary transition-colors">97902 66868</a>
+                <Phone className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                <a href="tel:9790266868" className="hover:text-primary transition-colors" itemProp="telephone">97902 66868</a>
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary shrink-0" />
-                <a href="mailto:karafath92@gmail.com" className="hover:text-primary transition-colors">karafath92@gmail.com</a>
+                <Mail className="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
+                <a href="mailto:karafath92@gmail.com" className="hover:text-primary transition-colors" itemProp="email">karafath92@gmail.com</a>
               </li>
               <li className="flex items-start gap-2">
-                <Clock className="w-4 h-4 mt-0.5 text-primary shrink-0" />
-                <div>
+                <Clock className="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true" />
+                <div itemProp="openingHours" content="Mo-Sa 05:00-22:00">
                   <p>Mon - Sat: 5AM - 10PM</p>
                   <p>Sunday: Closed</p>
                 </div>
               </li>
             </ul>
-          </div>
+          </address>
         </div>
 
         {/* Bottom */}

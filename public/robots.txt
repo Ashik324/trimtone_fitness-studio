@@ -1,8 +1,13 @@
+# Robots.txt for Trim & Tone Fitness Studio
+# https://trimandtone.com
+
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -12,3 +17,11 @@ Allow: /
 
 User-agent: *
 Allow: /
+Crawl-delay: 2
+
+# Sitemap
+Sitemap: https://trimandtone.com/sitemap.xml
+
+# Disallow admin and api routes if any
+Disallow: /api/
+Disallow: /admin/

@@ -4,10 +4,72 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
+import SEO from "@/components/SEO";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Fitness Training",
+  "provider": {
+    "@type": "HealthClub",
+    "name": "Trim & Tone Fitness Studio",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tiruchirappalli",
+      "addressRegion": "Tamil Nadu"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Tiruchirappalli"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Fitness Programs",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Weight Loss Program"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Weight Gain Program"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Functional Fitness"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Body Transformation"
+        }
+      }
+    ]
+  }
+};
 
 const ServicesPage = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="Our Services"
+        description="Explore fitness programs at Trim & Tone Fitness Studio - Weight Loss, Weight Gain, Functional Fitness, and Body Transformation with expert trainers in Tiruchirappalli."
+        keywords="weight loss program Trichy, weight gain gym, functional fitness, body transformation, personal training Tiruchirappalli, gym services"
+        canonical="/services"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero Section */}
@@ -94,6 +156,7 @@ const ServicesPage = () => {
       <Footer />
       <WhatsAppButton />
     </main>
+    </>
   );
 };
 

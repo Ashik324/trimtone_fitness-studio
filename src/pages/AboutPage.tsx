@@ -4,10 +4,38 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Target, Eye, Heart } from "lucide-react";
+import SEO from "@/components/SEO";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Trim & Tone Fitness Studio",
+  "description": "Discover the passion and dedication behind Trim & Tone Fitness Studio. Learn about our mission, vision, and values.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Trim & Tone Fitness Studio",
+    "foundingDate": "2020",
+    "numberOfEmployees": "10+",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tiruchirappalli",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "IN"
+    }
+  }
+};
 
 const AboutPage = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <SEO 
+        title="About Us"
+        description="Discover the passion and dedication behind Trim & Tone Fitness Studio in Tiruchirappalli. Learn about our mission to transform lives through fitness."
+        keywords="about trim and tone, gym Tiruchirappalli, fitness studio history, gym trainers Trichy, fitness mission"
+        canonical="/about"
+        structuredData={structuredData}
+      />
+      <main className="min-h-screen bg-background">
       <Navbar />
       
       {/* Hero Section */}
@@ -99,7 +127,8 @@ const AboutPage = () => {
 
       <Footer />
       <WhatsAppButton />
-    </main>
+      </main>
+    </>
   );
 };
 
