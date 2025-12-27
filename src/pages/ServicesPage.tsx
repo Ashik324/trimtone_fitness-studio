@@ -11,8 +11,13 @@ const ServicesPage = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="container mx-auto px-4 text-center">
+      <section className="pt-32 pb-16 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-gym.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-background/80" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <span className="text-primary text-sm font-semibold uppercase tracking-widest">
             Transform Your Body
           </span>
