@@ -79,7 +79,7 @@ const Services = () => {
               </ul>
               
               <a 
-                href="https://wa.me/919790266868?text=Hi! I'm interested in your ${service.title} program." 
+                href={`https://wa.me/919790266868?text=${encodeURIComponent(`Hi! I'm interested in your ${service.title} program.`)}`}
                 target="_blank" 
                 rel="noopener noreferrer"
               >
