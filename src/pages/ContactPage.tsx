@@ -46,20 +46,64 @@ const ContactPage = () => {
     message: "",
   });
 
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string): boolean => {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const message = formData.message.trim();
+
+    // Required field validation
+    if (!name || !email || !phone) {
       toast.error("Please fill in all required fields");
+      return;
+    }
+
+    // Input length validation
+    if (name.length > 100) {
+      toast.error("Name must be less than 100 characters");
+      return;
+    }
+
+    if (email.length > 255) {
+      toast.error("Email must be less than 255 characters");
+      return;
+    }
+
+    if (message.length > 500) {
+      toast.error("Message must be less than 500 characters");
+      return;
+    }
+
+    // Email format validation
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
+    // Phone format validation (10 digits)
+    if (!validatePhone(phone)) {
+      toast.error("Please enter a valid 10-digit phone number");
       return;
     }
 
     const whatsappMessage = `Hi! I'm interested in membership.
 
-Name: ${formData.name.trim()}
-Email: ${formData.email.trim()}
-Phone: ${formData.phone.trim()}
-Message: ${formData.message.trim() || "N/A"}`;
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message || "N/A"}`;
 
     const whatsappUrl = `https://wa.me/919790266868?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, "_blank");
